@@ -1,0 +1,97 @@
+<!-- MotoMaps – Home Page -->
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotorMaps • Circuiti Locali</title>
+    <link rel="icon" type="image/x-icon" href="img/MotorMaps.ico">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+      body {
+        font-family: 'Rubik', sans-serif;
+      }
+      a {
+        color: #7dc3ff;
+      }
+      a:hover {
+        color: #57b1ff;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col bg-zinc-100 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+
+    <nav class="bg-zinc-900 text-white">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <h1 class="text-left text-xl sm:text-2xl font-semibold tracking-tight">MotorMaps</h1>
+
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="text-blue-500 font-semibold">Home</a>
+        <a href="map.html" class="text-white hover:text-blue-500">Mappa</a>
+        <a href="preferiti.html" class="text-white hover:text-blue-500">Preferiti</a>
+      </div>
+     </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative isolate overflow-hidden">
+      <img src="./img/definitiva.jpg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-black/50"></div>
+      <div class="max-w-4xl mx-auto px-4 py-20 text-center text-white flex flex-col gap-6">
+        <h2 class="text-4xl sm:text-5xl font-bold leading-tight">Trova le piste vicino a te</h2>
+        <p class="text-lg sm:text-xl text-zinc-200">Orari di apertura, servizi, contatti e coordinate GPS – sempre aggiornati.</p>
+        <a href="map.html" class="self-center inline-block px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 font-medium text-white transition shadow-lg">Vai alla mappa interattiva</a>
+      </div>
+    </header>
+
+    <!-- Highlights section -->
+    <section class="py-16 bg-white dark:bg-zinc-800 " id="mappa" style=" background: white;color: black;">
+      <div class="max-w-6xl mx-auto px-4">
+        <h3 class="text-2xl sm:text-3xl font-semibold mb-10 text-center">Circuiti in evidenza</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- card template -->
+          <a href="dettagli/v-mugello.html" class="group bg-zinc-50 dark:bg-zinc-700 rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
+            <img src="img/mugello.jpg" alt="Mugello Circuit" class="h-40 w-full object-cover group-hover:scale-105 transition" />
+            <div class="p-5 flex flex-col gap-1" style=" background: white;color: black;">
+              <h4 class="text-lg font-medium">Mugello Circuit</h4>
+              <p class="text-sm text-zinc-500 dark:text-zinc-300" style="color: black;">Firenze • 5.2 km</p>
+            </div>
+          </a>
+          <!-- repeat for other tracks -->
+          <a href="dettagli/mx-maggiorapark.html" class="group bg-zinc-50 dark:bg-zinc-700 rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
+            <img src="img/maggiora.jpg" alt="Maggiora Park" class="h-40 w-full object-cover group-hover:scale-105 transition" />
+            <div class="p-5 flex flex-col gap-1" style=" background: white;color: black;">
+              <h4 class="text-lg font-medium">Maggiora Park</h4>
+              <p class="text-sm text-zinc-500 dark:text-zinc-300" style="color: black;">Novara • Fondo medio • 1.7 km</p>
+            </div>
+          </a>
+          <a href="dettagli/a-monza.html" class="group bg-zinc-50 dark:bg-zinc-700 rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
+            <img src="img/monza.jpg" alt="Carpine Racing Team" class="h-40 w-full object-cover group-hover:scale-105 transition" />
+            <div class="p-5 flex flex-col gap-1" style=" background: white;color: black;">
+              <h4 class="text-lg font-medium">Autodromo Nazionale Di Monza</h4>
+              <p class="text-sm text-zinc-500 dark:text-zinc-300" style="color: black;">Monza • 5.7 km</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-indigo-600 text-white text-center">
+      <h3 class="text-2xl sm:text-3xl font-semibold mb-4">Gestisci una pista?</h3>
+      <p class="mb-6">Contattaci per aggiungere il tuo circuito o aggiornare le informazioni.</p>
+      <a href="mailto:info@motomaps.it" class="inline-block px-7 py-3 rounded-xl bg-white text-indigo-700 font-medium hover:bg-zinc-100 transition shadow">Scrivici</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-zinc-900 text-zinc-400 text-center text-sm py-6">
+      &copy; 2025 MotorMaps
+    </footer>
+  </body>
+</html>

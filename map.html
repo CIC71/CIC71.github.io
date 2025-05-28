@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circuiti Locali</title>
+  <link rel="icon" type="image/x-icon" href="img/MotorMaps.ico">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="bg-black shadow p-4 flex justify-between items-center">
+    <h1 class="text-left text-xl sm:text-2xl font-semibold tracking-tight text-white">MotorMaps</h1>
+    <nav class="space-x-4">
+      <a href="index.html" class="text-white hover:text-blue-500">Home</a>
+      <a href="map.html" class="text-blue-500 font-semibold">Mappa</a>
+      <a href="preferiti.html" class="text-white hover:text-blue-500">Preferiti</a>
+        <button id="openModalBtn">Filtri</button>
+
+    </nav>
+
+          
+
+  </header>
+
+    <style>
+    /* Stile di base per la modale */
+    .modal {
+      display: none; /* Nascosta di default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .close-btn {
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: right;
+      top:2px;
+    }
+  </style>
+
+  <main id="mappa-e-filtri">
+
+    <div id="map"></div>
+
+        <div id="myModal" class="modal">
+
+          <div id="filtro-container"class="modal-content" >
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-semibold">🎯 Filtri</h3>
+              <button class="text-white font-bold py-1 px-3 rounded close-btn" id="closeModalBtn">X</button>
+            </div>
+
+
+      
+
+      <div class="filtro-sezione">
+        <strong>Tipo</strong>
+        <label><input type="checkbox" class="filtro-tipo" value="motocross" checked onchange="initMap()"> Fuoristrada</label>
+        <label><input type="checkbox" class="filtro-tipo" value="velocita" checked onchange="initMap()"> Velocità</label>
+        <label><input type="checkbox" class="filtro-tipo" value="autodromo" checked onchange="initMap()"> Autodromo</label>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="filtro-sezione">
+        <strong>Difficoltà</strong>
+        <label><input type="checkbox" value="Facile" checked onchange="initMap()"> Facile <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png" class="iconaFiltro" /></label>
+        <label><input type="checkbox" value="Media" checked onchange="initMap()"> Media <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png" class="iconaFiltro" /></label>
+        <label><input type="checkbox" value="Difficile" checked onchange="initMap()"> Difficile <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png" class="iconaFiltro" /></label>
+      </div>
+      <div class="divider"></div>
+
+    <div class="filtro-sezione" style="position: relative;">
+  <strong>Cerca circuito</strong>
+  <input
+    type="text"
+    id="search-input"
+    placeholder="Digita il nome del circuito..."
+    oninput="cercaCircuito()"
+    style="width: 100%; padding: 5px; margin-top: 5px; color: black;"
+    autocomplete="off"
+  />
+  <div id="autocomplete-list" style="position: absolute; top: 100%; left: 0; right: 0; z-index: 1000; background: white; border: 1px solid #ccc; max-height: 150px; overflow-y: auto;"></div>
+</div>
+
+
+    </div>
+
+      <script>
+    const modal = document.getElementById('myModal');
+    const openBtn = document.getElementById('openModalBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+
+    openBtn.onclick = () => {
+      modal.style.display = 'flex';
+    }
+
+    closeBtn.onclick = () => {
+      modal.style.display = 'none';
+    }
+
+    // Chiudi cliccando fuori dalla modale
+    window.onclick = (event) => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+
+
+
+
+  </main>
+  <footer>
+    <p>&copy; 2025 MotorMaps</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
